@@ -1,0 +1,18 @@
+<node>
+    <object name="uptime">
+        <attribute name="seconds" type="Integer" constraint="Status"/>
+        <attribute name="minutes" type="Integer" constraint="Status"/>
+        <attribute name="hours" type="Integer" constraint="Status"/>
+        <attribute name="days" type="Integer" constraint="Status"/>
+    </object>
+    <object name="system-informations">
+        <attribute name="name" type="String" constraint="Status"/>
+        <attribute name="description" type="String" constraint="Status"/>
+        <attribute name="version" type="String" constraint="Status"/>
+    </object>
+    <object name="comm-protocol">
+        <attribute name="online-nbr" type="Integer" constraint="Status"/>
+        <attribute name="protocol-nbr" type="Integer" constraint="Status"/>
+        <attribute name="error-protocol-names" type="String" constraint="Status"/>
+    </object>
+</node>

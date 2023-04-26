@@ -1,0 +1,8 @@
+<node>
+    <object name="DefaultMode">
+		<attribute name="default-enabled" type="Integer" constraint="Status"/>
+		<attribute name="default-enabled-w" type="Integer" constraint="SetPoint"/>
+		<attribute name="default-regulated-current" type="Integer" constraint="Measure"/>
+		<attribute name="default-regulated-current-w" type="Integer" constraint="SetPoint"/>
+    </object>
+</node>

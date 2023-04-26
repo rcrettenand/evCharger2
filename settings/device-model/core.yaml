@@ -1,0 +1,21 @@
+type: device_description
+
+version: 0.1.0
+
+name: core
+fullname: core controller access
+
+communication: core
+
+data:
+- {name: seconds, method: seconds}
+- {name: minutes, method: minutes}
+- {name: hours, method: hours}
+- {name: days, method: days}
+- {name: name, method: gw_name}
+- {name: description, method: description}
+- {name: version, method: version}
+- {name: online-nbr, method: online_nbr}
+- {name: protocol-nbr, method: protocol_nbr}
+- {name: error-protocol-names, method: error_protocol_names}
+

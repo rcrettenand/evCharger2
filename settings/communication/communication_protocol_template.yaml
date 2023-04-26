@@ -1,0 +1,10 @@
+type: communication_protocol
+
+version: 0.1.0
+
+name: TheCommunicationProtocolName
+
+needed_attributes: [
+    hey, salut
+]
+

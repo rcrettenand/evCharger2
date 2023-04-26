@@ -1,0 +1,10 @@
+  ch.hevs.cloudio.endpoint.hostUri: domos.oiken.ch
+  ch.hevs.cloudio.endpoint.ssl.version: "tlsv1.2"
+  ch.hevs.cloudio.endpoint.ssl.authorityCert: "../settings/certs/ca-cert.pem"
+  ch.hevs.cloudio.endpoint.ssl.clientCert: "../settings/certs/gmotion-client-cert.pem"
+  ch.hevs.cloudio.endpoint.ssl.clientKey: "../settings/certs/gmotion-private-key.pem"
+  ch.hevs.cloudio.endpoint.ssl.verifyHostname: 'false'
+  ch.hevs.cloudio.endpoint.messageFormat: "json"
+
+  # Either none, memory or file
+  ch.hevs.cloudio.endpoint.persistence: memory

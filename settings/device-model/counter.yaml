@@ -1,0 +1,16 @@
+type: device_description
+
+version: 1.0.0
+
+name: counter
+fullname: Example of a modbus counter
+
+communication: modbusTCP
+
+# type : co, di, ir, hr
+
+data: 
+- {name: v_l1, addr: 4, length: 2, type: hr}
+- {name: v_l2, addr: 6, length: 2, type: hr}
+- {name: c_l1, addr: 8, length: 2, type: ir}
+- {name: sp, addr: 10, length: 2, type: hr}

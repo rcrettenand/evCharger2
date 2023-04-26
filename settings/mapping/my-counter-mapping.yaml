@@ -1,0 +1,20 @@
+type: mapping
+
+version: 0.1.0
+
+name: my-counter-mapping
+fullname: example of a counter mapping
+
+force-update: my_custom_rate
+
+refresh-rate:   # in millisecond
+    daily: 86400   # every day
+    slow: 300      # every 5m
+    fast: 5        # every 5s
+    my_custom_rate: 10
+
+map:
+- {cloudio-name: Voltage.L1,                    comm-name: v_l1,     type: float,    permission: R,  refresh-rate: fast,             out: "to_float32(val)"}
+- {cloudio-name: Voltage.L2,                    comm-name: v_l2,     type: float,    permission: R,  refresh-rate: my_custom_rate,   out: "to_float32(val)"}
+- {cloudio-name: Current.L1,                    comm-name: c_l1,     type: float,    permission: R,  refresh-rate: fast,             out: "to_float32(val)"}
+- {cloudio-name: Setpoints.example_setpoint,    comm-name: sp,       type: float,    permission: W,  refresh-rate: fast,             in: "from_float32(val)"}

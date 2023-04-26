@@ -1,0 +1,20 @@
+type: communication_protocol
+
+version: 0.1.0
+
+name: modbusRTU
+
+# in device file
+needed-attributes: [
+    addr, name, unit, resolution, default, min, max, data_type, type, length, read_only
+]
+
+# in gateway-config file
+needed-config: [
+    module-name, port, framer
+]
+
+# in gateway-config file but for every device
+extra-parameters: [
+    unit-identifier
+]

@@ -1,0 +1,25 @@
+type: mapping
+
+version: 0.1.0
+
+name: core_map1
+fullname: core mapping 1
+
+force-update: slow
+
+refresh-rate:   # in millisecond
+    daily: 86400   # every day
+    slow: 15       # every 15s
+    fast: 1        # every 1s
+
+map:
+- {cloudio-name: uptime.seconds, comm-name: seconds, type: int, permission: R,refresh-rate: fast}
+- {cloudio-name: uptime.minutes, comm-name: minutes, type: int, permission: R,refresh-rate: fast}
+- {cloudio-name: uptime.hours, comm-name: hours, type: int, permission: R,refresh-rate: slow}
+- {cloudio-name: uptime.days, comm-name: days, type: int, permission: R,refresh-rate: slow}
+- {cloudio-name: system-informations.name, comm-name: name, type: str, permission: R,refresh-rate: daily}
+- {cloudio-name: system-informations.description, comm-name: description, type: str, permission: R,refresh-rate: daily}
+- {cloudio-name: system-informations.version, comm-name: version, type: str, permission: R,refresh-rate: daily}
+- {cloudio-name: comm-protocol.online-nbr, comm-name: online-nbr, type: int, permission: R,refresh-rate: slow}
+- {cloudio-name: comm-protocol.protocol-nbr, comm-name: protocol-nbr, type: int, permission: R,refresh-rate: slow}
+- {cloudio-name: comm-protocol.error-protocol-names, comm-name: error-protocol-names, type: str, permission: R,refresh-rate: slow}

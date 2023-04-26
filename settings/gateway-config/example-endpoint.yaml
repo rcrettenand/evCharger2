@@ -1,0 +1,33 @@
+gateway:
+  name: 24394175-dc71-4657-b12a-edd2cd6042f7
+  description: "Example of a modbus cloudio gateway"
+
+cloudio:
+  endpoint: 24394175-dc71-4657-b12a-edd2cd6042f7
+  config-file-name: cloudio-properties-example
+
+comm-protocol:
+  - type: core
+    module-name: core_controller
+
+  - type: modbusTCP
+    module-name: my_modbus_tcp
+    ip: 127.0.0.1
+    port: 5020
+    framer: ModbusSocketFramer
+    timeout: 5.0
+  
+devices:
+  - name: core
+    device-model: core
+    comm-protocol: core_controller  # refer to one comm-protocol above
+    mapping: core_map
+    cloudio-model: core
+
+  - name: my-counter-node
+    device-model: counter
+    comm-protocol: my_modbus_tcp  # refer to one comm-protocol above
+    mapping: my-counter-mapping
+    cloudio-model: counter-data-model
+
+    

@@ -1,0 +1,47 @@
+type: device_description
+
+version: 0.1.0
+
+name: green-motion
+fullname: Green motion Ev Charger
+
+communication: modbusRTU
+
+
+# Object type	Access	Size	Address Space
+# Coil	Read-write	1 bit	00001 - 09999
+ #Discrete input	Read-only	1 bit	10001 - 19999
+# Input register	Read-only	16 bits	30001 - 39999
+# Holding register	Read-write	16 bits	40001 - 49999
+
+# type : co, di, ir, hr
+
+data:
+- {name: plug-count,                      addr: 0, length: 1, type: hr}
+- {name: selected-plug-index,             addr: 1,  length: 1, type: hr}
+- {name: selected-plug-index-w,           addr: 1,  length: 1, type: hr}
+- {name: plug-id,                         addr: 2, length: 2, type: hr}
+- {name: enabled-w,                       addr: 4, length: 1, type: hr}
+- {name: enabled,                         addr: 4, length: 1, type: hr}
+- {name: status,                          addr: 6, length: 1, type: hr}
+- {name: status-w,                        addr: 6, length: 1, type: hr}
+- {name: charge-status,                   addr: 7, length: 1, type: hr}
+- {name: can-be-regulated,                addr: 8, length: 1, type: hr}
+- {name: regulated-current,               addr: 9, length: 1, type: hr}
+- {name: regulated-current-w,             addr: 9, length: 1, type: hr}
+- {name: maximum-current,                 addr: 10, length: 1, type: hr}
+- {name: minimum-allowed-current,         addr: 11, length: 1, type: hr}
+- {name: maximum-allowed-current,         addr: 12, length: 1, type: hr}
+- {name: can-provide-energy-consumption,  addr: 13, length: 1, type: hr}
+- {name: energy-consumption,              addr: 14, length: 2, type: hr}
+- {name: set-energy-consumption,          addr: 16, length: 2, type: hr}
+- {name: instant-energy-consumption,      addr: 18, length: 1, type: hr}
+- {name: instant-energy-consumption-p,    addr: 18, length: 1, type: hr}
+- {name: instant-current-consumption,     addr: 20, length: 1, type: hr}
+- {name: plug-type,                       addr: 21, length: 1, type: hr}
+- {name: current-type,                    addr: 22, length: 1, type: hr}
+- {name: phase-count,                     addr: 23, length: 1, type: hr}
+- {name: rfid-serial-status,              addr: 24, length: 1, type: hr}
+- {name: rfid-serial-status-w,            addr: 24, length: 1, type: hr}
+- {name: rfid-serial-number,              addr: 25, length: 4, type: hr}
+

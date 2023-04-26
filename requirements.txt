@@ -1,0 +1,10 @@
+PyYAML==5.4.1
+cloudio-common-python==0.3.0
+cloudio-endpoint-python==1.1.0
+cloudio-glue-python==1.0.1
+configobj==5.0.6
+paho-mqtt==1.5.1
+pymodbus==2.5.2
+pyserial==3.5
+six==1.16.0
+cbor==1.0.0

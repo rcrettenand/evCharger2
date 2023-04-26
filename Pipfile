@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cloudio-endpoint-python = "1.1.0"
+cloudio-glue-python = "1.0.1"
+pymodbus = "2.5.2"
+pyyaml = "5.4.1"
+xmltodict = "*"
+pyqt5 = "*"
+jsonschema = "*"
+cbor = "1.0.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9.5"
+
+[scripts]
+runPython = "cd src && python main.py"

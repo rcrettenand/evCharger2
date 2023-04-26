@@ -1,0 +1,12 @@
+<node>
+    <object name="Voltage">
+		<attribute name="L1" type="Number" constraint="Measure"/>
+		<attribute name="L2" type="Number" constraint="Measure"/>
+    </object>
+	<object name="Current">
+		<attribute name="L1" type="Number" constraint="Measure"/>
+    </object>
+	<object name="Setpoints">
+        <attribute name="example_setpoint" type="Number" constraint="SetPoint"/>
+    </object>
+</node>

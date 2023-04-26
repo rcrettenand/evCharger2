@@ -1,0 +1,43 @@
+gateway:
+  name: fefba206-1f6c-4077-8c65-611cd6441c6e
+  description: "Endpoint of the GreenMotion EV Charger "
+
+cloudio:
+  endpoint: fefba206-1f6c-4077-8c65-611cd6441c6e
+  config-file-name: green-motion-properties
+
+comm-protocol:
+  - type: core
+    module-name: core_controller
+
+  - type: modbusRTU
+    module-name: modbus_rtu
+    port: '/dev/ttyS2'
+    framer: ModbusRtuFramer
+    stopbits: 1
+    parity: 'E'
+    bytesize: 8
+    baudrate: 38400
+    timeout: 0.5
+    method: rtu
+
+  - type: defaultMode
+    module-name: default_mode
+
+
+devices:
+  - name: Fz1
+    device-model: bornes/green-motion
+    comm-protocol: modbus_rtu  # refer to one comm-protocol above
+    mapping: bornes/green-motion-map
+    cloudio-model: ../data-bornes/green-motion
+    comm-parameters:
+      unit-identifier: 1
+
+  - name : Fz01
+    device-model: bornes/default-green
+    comm-protocol: default_mode
+    mapping: bornes/default-green.yaml-map
+    cloudio-model: ../data-bornes/default-green
+
+

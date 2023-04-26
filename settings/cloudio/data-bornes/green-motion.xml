@@ -1,0 +1,32 @@
+<node>
+    <object name="ObjectTest">
+		<attribute name="plug-count" type="Integer" constraint="Measure"/>
+		<attribute name="selected-plug-index" type="Integer" constraint="Status"/>
+		<attribute name="selected-plug-index-w" type="Integer" constraint="Status"/>
+		<attribute name="plug-id" type="Integer" constraint="Status"/>
+		<attribute name="enabled" type="Integer" constraint="Status"/>
+		<attribute name="enabled-w" type="Integer" constraint="Setpoint"/>
+		<attribute name="status" type="Integer" constraint="Status"/>
+		<attribute name="status-w" type="Integer" constraint="Setpoint"/>
+		<attribute name="charge-status" type="Integer" constraint="Status"/>
+		<attribute name="can-be-regulated" type="Integer" constraint="Status"/>
+		<attribute name="regulated-current" type="Integer" constraint="Measure"/>
+		<attribute name="regulated-current-w" type="Integer" constraint="Setpoint"/>
+		<attribute name="maximum-current" type="Integer" constraint="Measure"/>
+		<attribute name="minimum-allowed-current" type="Integer" constraint="Measure"/>
+		<attribute name="maximum-allowed-current" type="Integer" constraint="Measure"/>
+		<attribute name="can-provide-energy-consumption" type="Integer" constraint="Status"/>
+		<attribute name="energy-consumption" type="Integer" constraint="Measure"/>
+		<attribute name="set-energy-consumption" type="Integer" constraint="Setpoint"/>
+		<attribute name="instant-energy-consumption" type="Integer" constraint="Measure"/>
+		<attribute name="instant-current-consumption" type="Integer" constraint="Measure"/>
+		<attribute name="plug-type" type="Integer" constraint="Status"/>
+		<attribute name="current-type" type="Integer" constraint="Status"/>
+		<attribute name="phase-count" type="Integer" constraint="Status"/>
+		<attribute name="rfid-serial-status" type="Integer" constraint="Status"/>
+		<attribute name="rfid-serial-status-w" type="Integer" constraint="Status"/>
+		<attribute name="rfid-serial-number" type="Integer" constraint="Status"/>
+    </object>
+
+</node>
+
