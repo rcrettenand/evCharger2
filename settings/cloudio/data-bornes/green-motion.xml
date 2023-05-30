@@ -27,6 +27,10 @@
 		<attribute name="rfid-serial-status-w" type="Integer" constraint="Status"/>
 		<attribute name="rfid-serial-number" type="Integer" constraint="Status"/>
     </object>
+	<object name="Object2">
+		<attribute name="default-enabled" type="Integer" constraint="SetPoint"/>
+		<attribute name="default-regulated-current" type="Integer" constraint="SetPoint"/>
+	</object>
 
 </node>
 

@@ -3,12 +3,12 @@ import sys
 import time
 import sched
 import traceback
+import paho.mqtt.client as mqtt
 
 from communication.com_protocol import ComProtocolError, ComProtocolConnectionError,\
     ComProtocolValueError
 from device.comdevice import DeviceModelErrorException
-
-
+from cloudio.common.mqtt.helpers import MqttAsyncClient
 class Controller:
     """Controller class : active part of the gateway (reading/writing) run by a scheduler
         attributes:
@@ -20,14 +20,13 @@ class Controller:
     """
     log = logging.getLogger(__name__)
 
-    def __init__(self, devices):
+    def __init__(self, devices, endpoint):
         self.devices = devices
+        self.endpoint = endpoint
         self.s = sched.scheduler(time.monotonic, time.sleep)
-
         # force update all device
         for device in self.devices:
             self.force_update_all(device.mapping_device.force_update_rate, device)
-
         # schedule all mapped attributes in groups
         self.devices_update = []
 
@@ -41,15 +40,14 @@ class Controller:
             for update_group in device_update:
                 self.s.enter(update_group, 2, self.update, argument=(update_group, device, device_update[update_group]))
 
+            self.s.enter(1,2,self.test_connection)
+
     def update(self, update_rate, device, attribute_list):
         self.s.enter(update_rate, 2, self.update, argument=(update_rate, device, attribute_list))
-
         self.log.info(f"Reading from scheduler every {update_rate}s {len(attribute_list)} attributes")
 
         # last_val = time.perf_counter_ns()
-
         for attribute in attribute_list:
-            self.log.info(f'The attribute : {attribute}')
             if type(attribute) == list:
                 try:
                     value = device.comm_device.read_values(attribute)
@@ -89,8 +87,7 @@ class Controller:
     def write_attribute(self, device, attribute, value):
         """ executing when an attribute has to be writted from the cloud """
 
-        self.log.debug(f'trying to set {attribute} to {value}')
-
+        self.log.debug( f'trying to set {attribute} to {value}')
         try:
             device.comm_device.write_value(attribute, value)
             value_read = device.comm_device.read_value(attribute)
@@ -109,11 +106,10 @@ class Controller:
         self.log.info(f"Force updating all attributes every {update_rate}s")
 
         for attribute in device.mapping_device.map:
-
+            # print(f'Attribute: {attribute}')
             if type(attribute['comm-name']) == list:
                 try:
                     value = device.comm_device.read_values(attribute['comm-name'])
-                    print(attribute['comm-name'])
                 except ComProtocolConnectionError as e:
                     self.log.warning(f'Connection error : {e}')
                     return
@@ -162,11 +158,26 @@ class Controller:
         self.s.enter(2, 1, self.test_minutes)
         self.log.info("Reading from controller and scheduler")
         value = self.devices[1].comm_device.read_value('max-rms-current-L1')
-        print(value)
+        # print(value)
         self.devices[1].mapping_device.update_parameter('max-rms-current-L1', value)
+
+
+    # Threads that ensure the connection between the Pi and the Cloud.
+    def test_connection(self):
+        while True:
+            if not self.endpoint.is_online():
+                self.log.info('WRITING DEFAULT VALUES')
+            time.sleep(10)
 
     def run(self):
         self.log.info('Running')
         while True:
+            # print("HELLO")
+            if not self.endpoint.is_online():
+                self.log.info('TEST WORKS')
             self.s.run(blocking=True)
+
+
+
+
 

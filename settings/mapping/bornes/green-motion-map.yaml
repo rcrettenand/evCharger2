@@ -15,27 +15,29 @@ refresh-rate:       # in millisecond
 map:
 - {cloudio-name: ObjectTest.plug-count,                         comm-name: plug-count,                            type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.selected-plug-index,                comm-name: selected-plug-index,                   type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
-- {cloudio-name: ObjectTest.selected-plug-index-w,              comm-name: selected-plug-index-w,                 type: int,    permission: W,  refresh-rate:  slow }
+- {cloudio-name: ObjectTest.selected-plug-index-w,              comm-name: selected-plug-index-w,                 type: int,    permission: RW,  refresh-rate:  slow }
 - {cloudio-name: ObjectTest.plug-id,                            comm-name: plug-id,                               type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,32)"}
 - {cloudio-name: ObjectTest.enabled,                            comm-name: enabled,                               type: int,    permission: R,  refresh-rate: slow , out: "to_unsigned(val,16)"}
-- {cloudio-name: ObjectTest.enabled-w,                          comm-name: enabled-w,                             type: int,    permission: W,  refresh-rate: slow }
+- {cloudio-name: ObjectTest.enabled-w,                          comm-name: enabled-w,                             type: int,    permission: RW,  refresh-rate: slow }
 - {cloudio-name: ObjectTest.status,                             comm-name: status,                                type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
-- {cloudio-name: ObjectTest.status-w,                           comm-name: status-w,                              type: int,    permission: W,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
+- {cloudio-name: ObjectTest.status-w,                           comm-name: status-w,                              type: int,    permission: RW,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.charge-status,                      comm-name: charge-status,                         type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.can-be-regulated,                   comm-name: can-be-regulated,                      type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.regulated-current,                  comm-name: regulated-current,                     type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
-- {cloudio-name: ObjectTest.regulated-current-w,                comm-name: regulated-current-w,                   type: int,    permission: W,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
+- {cloudio-name: ObjectTest.regulated-current-w,                comm-name: regulated-current-w,                   type: int,    permission: RW,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.maximum-current,                    comm-name: maximum-current,                       type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.minimum-allowed-current,            comm-name: minimum-allowed-current,               type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.maximum-allowed-current,            comm-name: maximum-allowed-current,               type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.can-provide-energy-consumption,     comm-name: can-provide-energy-consumption,        type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.energy-consumption,                 comm-name: energy-consumption,                    type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
-- {cloudio-name: ObjectTest.set-energy-consumption,             comm-name: set-energy-consumption,                type: int,    permission: W,  refresh-rate:  slow }
+- {cloudio-name: ObjectTest.set-energy-consumption,             comm-name: set-energy-consumption,                type: int,    permission: W,  refresh-rate:  slow, in: "to_unsigned(val,16)" }
 - {cloudio-name: ObjectTest.instant-energy-consumption,         comm-name: instant-energy-consumption,            type: int,  permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.instant-current-consumption,        comm-name: instant-current-consumption,           type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.plug-type,                          comm-name: plug-type,                             type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.current-type,                       comm-name: current-type,                          type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.phase-count,                        comm-name: phase-count,                           type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
 - {cloudio-name: ObjectTest.rfid-serial-status,                 comm-name: rfid-serial-status,                    type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,16)"}
-- {cloudio-name: ObjectTest.rfid-serial-status-w,               comm-name: rfid-serial-status-w,                  type: int,    permission: W,  refresh-rate:  slow }
+- {cloudio-name: ObjectTest.rfid-serial-status-w,               comm-name: rfid-serial-status-w,                  type: int,    permission: RW,  refresh-rate:  slow }
 - {cloudio-name: ObjectTest.rfid-serial-number,                 comm-name: rfid-serial-number,                    type: int,    permission: R,  refresh-rate:  slow, out: "to_unsigned(val,64)"}
+- {cloudio-name: Object2.default-enabled,                 comm-name: default-enabled,                    type: int,    permission: RW,  refresh-rate:  slow}
+- {cloudio-name: Object2.default-regulated-current,        comm-name: default-regulated-current,           type: int,    permission: RW,  refresh-rate:  slow}

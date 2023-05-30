@@ -43,6 +43,8 @@ class Connector(object):
 
         # create an endpoint with properties['uuid'] and the configuration
         self._endpoint = CloudioEndpoint(properties['uuid'], configuration)
+        # print("ENDPOINT", self._endpoint.is_online())
+
 
     def get_endpoint_name(self):
         """ get the endpoint name """
@@ -177,5 +179,4 @@ class Connector(object):
 
         assert theType, u'Attribute type unknown or not set!'
 
-        print(f'Name of element {theName}')
         cloudioRuntimeObject.add_attribute(theName, theType, constraint)

@@ -21,12 +21,9 @@ comm-protocol:
     timeout: 0.5
     method: rtu
 
-  - type: defaultMode
-    module-name: default_mode
-
 
 devices:
-  - name: Fz1
+  - name: Fy1
     device-model: bornes/green-motion
     comm-protocol: modbus_rtu  # refer to one comm-protocol above
     mapping: bornes/green-motion-map
@@ -34,10 +31,6 @@ devices:
     comm-parameters:
       unit-identifier: 1
 
-  - name : Fz01
-    device-model: bornes/default-green
-    comm-protocol: default_mode
-    mapping: bornes/default-green.yaml-map
-    cloudio-model: ../data-bornes/default-green
+
 
 

@@ -61,6 +61,7 @@ class Gateway(metaclass=Singleton):
             file = open(f'{SETTINGS_BASE_PATH}/{CLOUDIO_MODEL_DIR}/{device["cloudio-model"]}.xml')
 
             # add name of the node from the gateway config file
+
             node_content += file.read().replace('<node>', f'<node name="{device["name"]}">')
 
         # create model from the different files !
@@ -73,11 +74,14 @@ class Gateway(metaclass=Singleton):
         # create device and add it to
         for device_config in gateway_config['devices']:
             d = Device(device_config, self.cloudio_endpoint, self.protocols)
+            # print(d)
             self.devices.append(d)
 
-        self.controller = Controller(self.devices)
+        self.controller = Controller(self.devices, self.cloudio_endpoint)
 
         self.log.info('Setup finished !')
 
         # controller
         self.controller.run()
+
+
